@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginBottom="@dimen/dp2"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone">
+
+        <com.sachin.humrahi.ui.customView.APRTV
+            android:id="@+id/tvGroupDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dp11"
+            android:layout_marginEnd="@dimen/dp11"
+            android:background="@drawable/rc_color_pr_bg"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp20"
+            android:paddingTop="@dimen/dp3"
+            android:paddingEnd="@dimen/dp20"
+            android:paddingBottom="@dimen/dp3"
+            android:text="@string/today"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_12" />
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rlGroup"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp20"
+        android:layout_marginBottom="@dimen/dp10"
+        android:background="@drawable/rc_receiver_bg"
+        android:padding="@dimen/dp7"
+        android:orientation="horizontal">
+
+        <com.sachin.humrahi.ui.customView.APRTV
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/txt_size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.sachin.humrahi.ui.customView.APRTV
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvMessage"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/txt_size_11"
+            android:layout_marginStart="@dimen/dp10"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvMessage"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

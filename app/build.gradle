@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'io.realm.kotlin'
+}
+
+android {
+    namespace 'com.karmakarin.chatu'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.quicksell"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "0.0.1"
+//        multiDexEnabled true
+//        ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    ///databind
+
+    implementation 'com.android.databinding:viewbinding:8.2.0'
+
+    //digger hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //view models
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0-beta01'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0-beta01'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation "androidx.activity:activity-ktx:1.4.0"
+    implementation "androidx.fragment:fragment-ktx:1.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "io.realm.kotlin:library-base:1.11.0"
+
+    //gson convert
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+
+}

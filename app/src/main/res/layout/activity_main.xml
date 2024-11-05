@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="ma"
+            type="com.karmakarin.chatu.ui.main.activity.MainActivity" />
+
+        <variable
+            name="adapter"
+            type="com.karmakarin.chatu.ui.main.adapter.ChatAdapter" />
+
+        <variable
+            name="vm"
+            type="com.karmakarin.chatu.ui.main.viewModel.ChatViewModel" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey"
+        tools:context=".ui.main.activity.MainActivity">
+
+        <RelativeLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="@dimen/dp5">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/dp20"
+                android:paddingTop="@dimen/dp10"
+                android:paddingEnd="@dimen/dp10"
+                android:paddingBottom="@dimen/dp10"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_back" />
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_toEndOf="@+id/ivBack"
+                android:adjustViewBounds="true"
+                android:maxWidth="@dimen/dp40"
+                android:maxHeight="@dimen/dp40"
+                app:srcCompat="@drawable/ic_profile" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_toStartOf="@+id/ivCall"
+                android:layout_toEndOf="@+id/ivImage"
+                android:orientation="vertical">
+
+                <com.sachin.humrahi.ui.customView.APMTV
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sachin Jha"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_size_18" />
+
+                <com.sachin.humrahi.ui.customView.APRTV
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp2"
+                    android:text="last seen today 11:00 am "
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/txt_size_10" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/ivAttachment"
+                android:adjustViewBounds="true"
+                android:maxWidth="@dimen/dp40"
+                android:maxHeight="@dimen/dp40"
+                android:padding="@dimen/dp10"
+                app:srcCompat="@drawable/ic_call"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/ivAttachment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/ivOption"
+                android:adjustViewBounds="true"
+                android:maxWidth="@dimen/dp40"
+                android:maxHeight="@dimen/dp40"
+                android:padding="@dimen/dp10"
+                app:srcCompat="@drawable/ic_attachment"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/ivOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp10"
+                android:adjustViewBounds="true"
+                android:maxWidth="@dimen/dp40"
+                android:maxHeight="@dimen/dp40"
+                android:padding="@dimen/dp10"
+                app:srcCompat="@drawable/ic_option"
+                app:tint="@color/white" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvChat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rlFooter"
+            android:layout_below="@+id/rlHeader"
+            android:layout_centerHorizontal="true"
+            android:clipToPadding="false"
+            android:fadeScrollbars="false"
+            android:padding="6dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            app:adapterFresh="@{adapter}"
+            app:layoutManager="LinearLayoutManager"
+            app:paginationPokemonList="@{vm}"
+            app:submitList="@{vm.chatList}" />
+
+        <RelativeLayout
+            android:id="@+id/rlFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp20">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_toStartOf="@+id/rlSend"
+                android:background="@drawable/rc_chat_bg"
+                android:padding="@dimen/dp5">
+
+                <ImageView
+                    android:id="@+id/ivEmoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="@dimen/dp35"
+                    android:maxHeight="@dimen/dp35"
+                    android:padding="@dimen/dp5"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_emoji"
+                    app:tint="@color/dark_gray" />
+
+                <com.sachin.humrahi.ui.customView.APRET
+                    android:id="@+id/edText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_toStartOf="@+id/ivCamera"
+                    android:layout_toEndOf="@+id/ivEmoji"
+                    android:background="@color/background"
+                    android:hint="@string/type_a_message"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:padding="@dimen/dp13"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/light_grey"
+                    android:textSize="@dimen/txt_size_14" />
+
+                <ImageView
+                    android:id="@+id/ivCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="@dimen/dp35"
+                    android:maxHeight="@dimen/dp35"
+                    android:padding="@dimen/dp5"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_camera" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:id="@+id/ivMic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="@dimen/dp65"
+                    android:maxHeight="@dimen/dp65"
+                    android:padding="@dimen/dp5"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_mic"
+                    app:tint="@color/colorPrimary" />
+
+                <ImageView
+                    android:id="@+id/ivSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="@dimen/dp65"
+                    android:maxHeight="@dimen/dp65"
+                    android:padding="@dimen/dp5"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_send"
+                    app:tint="@color/colorPrimary" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

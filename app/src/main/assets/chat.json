@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "sender": false,
+    "content": "Hello, how are you?",
+    "timestamp": 455544,
+    "gd": "Today"
+  },
+  {
+    "id": 2,
+    "sender": true,
+    "content": "I'm good, thanks! How about you?",
+    "timestamp": 455546,
+    "gd": null
+  },
+  {
+    "id": 3,
+    "sender": false,
+    "content": "I'm doing great, thanks for asking!",
+    "timestamp": 455547,
+    "gd": null
+  },
+  {
+    "id": 4,
+    "sender": true,
+    "content": "That's good to hear!",
+    "timestamp": 455548,
+    "gd": null
+  },
+  {
+    "id": 5,
+    "sender": false,
+    "content": "Yes, it is!",
+    "timestamp":455549,
+    "gd": null
+  }
+]
